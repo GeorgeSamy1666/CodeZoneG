@@ -8,6 +8,8 @@
 body {
     background-color: #1e1e1e;
     color: #ffffff;
+     overflow: hidden;
+    height: 100vh;
 }
 
 .logo {
@@ -28,7 +30,7 @@ nav {
     gap: 20px;
     backdrop-filter: blur(2px);
     padding: 10px;
-    z-index: 1000;
+    z-index: 9999999999999;
 }
 
 nav ul {
@@ -171,6 +173,7 @@ nav a:hover::after {
     background-color: #1e1e1e;
     color: #ffffff;
     padding: 20px;
+  
     
 }
 
@@ -179,12 +182,12 @@ nav a:hover::after {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgb(33, 33, 33);
+    background-color: rgba(33, 33, 33, 0.645);
     padding: 20px;
     border: 1px solid #2b2b2b;
     border-radius: 10px;
     box-shadow: 0 0 10px rgb(0, 0, 0);
-   z-index: 9999999;
+   z-index: 999999;
 }
 
 .register h1 {
@@ -253,34 +256,7 @@ nav a:hover::after {
     background-color: rgb(0, 177, 94);
 }
 
-footer {
-    background-color: #1e1e1e;
-    padding: 5px;
-    text-align: center;
-    color: #777;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-}
 
-footer p {
-    margin: 5px 0;
-}
-
-footer .social-icons {
-    margin-top: 10px;
-}
-
-footer .social-icons a i {
-    color: #ffffff;
-    margin: 0 10px;
-    font-size: 25px;
-    transition: color 0.3s ease;
-}
-
-footer .social-icons a i:hover {
-    color: rgb(0, 204, 109);
-}
 @media (max-width: 1024px) {
   .register h1 {
     font-size: 30px;
@@ -305,6 +281,7 @@ footer .social-icons a i:hover {
 @media (max-width: 768px) {
   .register {
     padding: 40px 10px;
+    margin-top: 70px;
   }
 
   .register .container {

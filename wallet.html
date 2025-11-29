@@ -1,40 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="CodeZone Team">
-    <link href='https://cdn.boxicons.com/3.0.4/fonts/basic/boxicons.min.css' rel='stylesheet'>
-    <link href='https://cdn.boxicons.com/3.0.4/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <link rel="icon" href="/photos/icons8-code-48.png" type="image/x-icon"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="wallet.css">
-    <title>Wallet</title>
-</head>
-<body>
-<section class="pay">
-    <div class="pay-container">
-        <h2>Your Wallet</h2>
-        <p>Manage your funds and transactions here.</p>
-        <div class="balance">
-            <h3>Current Balance: $00.00</h3>
-        </div>
-      <div class="credit">
-        <h3>Add Money</h3>
-        <input type="number" placeholder="Enter amount" required>
-        <input type="number" placeholder="Card Number" required>
-        <input type="number" placeholder="Expiry Date"required>
-        <input type="number" placeholder="CVV"required>
-        <input type="text" placeholder="Cardholder Name" required>
-        <button class="btn">Add Money</button>
-      </div>
-    </div>
-</section>
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="CodeZone - Securely top-up your wallet to access premium coding courses and services."
+    />
+    <meta
+      name="keywords"
+      content="CodeZone, wallet top-up, secure payment, coding courses, online learning, add funds, payment methods"
+    />
+    <meta name="author" content="CodeZone Team" />
+    <link
+      href="https://cdn.boxicons.com/3.0.4/fonts/basic/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.boxicons.com/3.0.4/fonts/brands/boxicons-brands.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="/photos/icons8-code-48.png" type="image/x-icon" />
+    <title>Wallet Top-Up</title>
+    <link rel="stylesheet" href="wallet.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="logo"><i class="bx bx-code-alt"></i> CodeZone</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="wallet.html" class="active">Wallet Top-Up</a></li>
+      </ul>
+    </nav>
 
-</body>
+    <main class="container">
+      <div class="card">
+        <h2>Wallet Top-Up</h2>
+        <p class="subtitle">Securely add funds to your CodeZone wallet</p>
+
+        <form id="walletForm">
+          <!-- Amount -->
+          <div class="form-group">
+            <label for="amount">Amount</label>
+            <input
+              type="number"
+              id="amount"
+              placeholder="Enter amount in EGP"
+              required
+            />
+          </div>
+
+          <!-- Payment Method -->
+          <div class="form-group">
+            <label for="method">Payment Method</label>
+            <select id="method" required>
+              <option value="">Select a method</option>
+              <option value="card">Visa / MasterCard</option>
+              <option value="vodafone">Vodafone Cash</option>
+              <option value="paypal">PayPal</option>
+            </select>
+          </div>
+
+          <!-- Card Details -->
+          <div id="cardDetails" class="hidden">
+            <div class="form-group">
+              <label for="cardNumber">Card Number</label>
+              <input
+                type="text"
+                id="cardNumber"
+                placeholder="XXXX-XXXX-XXXX-XXXX"
+              />
+            </div>
+            <div class="form-group">
+              <label for="expiry">Expiry Date</label>
+              <input type="text" id="expiry" placeholder="MM/YY" />
+            </div>
+            <div class="form-group">
+              <label for="cvv">CVV</label>
+              <input type="password" id="cvv" placeholder="3 digits" />
+            </div>
+          </div>
+
+          <!-- Vodafone Cash -->
+          <div id="vodafoneDetails" class="hidden">
+            <div class="form-group">
+              <label for="phone">Vodafone Cash Number</label>
+              <input type="text" id="phone" placeholder="01XXXXXXXXX" />
+            </div>
+          </div>
+
+          <!-- PayPal -->
+          <div id="paypalDetails" class="hidden">
+            <div class="form-group">
+              <label for="paypalEmail">PayPal Email</label>
+              <input
+                type="email"
+                id="paypalEmail"
+                placeholder="example@email.com"
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="btn">Top-Up Now</button>
+        </form>
+
+        <div id="result" class="result-box"></div>
+      </div>
+    </main>
+
+    <script src="wallet.js"></script>
+  </body>
 </html>
