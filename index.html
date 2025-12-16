@@ -16,22 +16,44 @@
     <link rel="stylesheet" href="index.css">
     <title>CodeZone </title>
 </head>
-<body>
+
+<!-- Loader -->
+<div id="page-loader" class="loader-screen">
+  <div class="loader">
+    <div class="intern"></div>
+    <div class="external-shadow">
+      <div class="central"></div>
+    </div>
+  </div>
+</div>
+
+
     <nav>
         <div class="logo"><i class='bx  bx-code-alt'></i>  CodeZone</div>
         <div class="search-box">
             <input type="text" id="searchInput" placeholder="Search...">
             <i class='bx bx-search'></i>
         </div>
+     
         
         <ul >
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="login.html">Login</a></li>
-            <li><a href="courses.html">Courses</a></li>
+            <li><a href="popular-courses.html">Courses</a></li>
             <li><a href="services.html">Services</a></li>
-           
-
         </ul>
+             <!-- burger icon -->
+            <div class="burger-icon">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <div class="close-icon">
+            <div class="line1"></div>
+            <div class="line2"></div>
+        </div>
+
+     
     </nav>
     <div class="side-bar">
       <a href="wallet.html" target = _blank><i class='fas fa-wallet'></i></a> 
@@ -78,16 +100,20 @@
         <h4>- George S.</h4>
       </div>
     </section>
-    <section class="newsletter">
-      <h2>Stay Updated</h2>
-      <div class="update">
-        <p>Subscribe to our newsletter for the latest courses and offers.</p>
-        <form>
-          <input type="email" placeholder="Enter your email" />
-          <a href="courses.html" class="btn" name="subscribe">Subscribe</a>
-        </form>
-      </div>
-    </section>
+<section class="newsletter" id="newsletter-section">
+  <h2 id="newsletter-title">Stay Updated</h2>
+  <div class="update" id="newsletter-update">
+    <p id="newsletter-description">
+      Subscribe to our newsletter for the latest courses and offers.
+    </p>
+    <form id="newsletter-form">
+      <input type="email" id="newsletter-email" placeholder="Enter your email" required />
+      <button type="submit" id="newsletter-submit" class="btn">Subscribe</button>
+    </form>
+    <p id="newsletter-feedback"></p>
+  </div>
+</section>
+
 
 <footer>
     <p>&copy; 2025 CodeZone. All rights reserved.</p>
@@ -101,5 +127,6 @@
 </footer>
 
     <script src="index.js"></script>
+    <script src="loading.js"></script>
 </body>
 </html>

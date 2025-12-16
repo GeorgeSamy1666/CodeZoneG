@@ -30,18 +30,38 @@
     <title>register</title>
   </head>
   <body>
-    <nav>
-      <div class="logo"><i class="bx bx-code-alt"></i> CodeZone</div>
-      <div class="search-box">
-        <input type="text" placeholder="Search..." />
-        <i class="bx bx-search"></i>
+       <div class="loader-container">
+      <div>
+        <div class="sec-loader"></div>
       </div>
-      <ul>
-        <li><a href="index.html" >Home</a></li>
-        <li><a href="login.html" class="active">Login</a></li>
-        <li><a href="courses.html">Courses</a></li>
-        <li><a href="services.html">Services</a></li>
-      </ul>
+    </div>
+    <nav>
+        <div class="logo"><i class='bx  bx-code-alt'></i>  CodeZone</div>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <i class='bx bx-search'></i>
+       
+        </div>
+     
+        
+        <ul >
+            <li><a href="index.html" >Home</a></li>
+            <li><a href="register.html"class="active">Register</a></li>
+            <li><a href="popular-courses.html">Courses</a></li>
+            <li><a href="services.html">Services</a></li>
+        </ul>
+             <!-- burger icon -->
+            <div class="burger-icon">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <div class="close-icon">
+            <div class="line1"></div>
+            <div class="line2"></div>
+        </div>
+
+     
     </nav>
      <canvas id="matrix"></canvas>
     <section class="register">
@@ -57,10 +77,11 @@
           <input id="pass" type="password" placeholder="Password" required/>
           <input type="password" id="confirm-pass" placeholder="Confirm Password" />
           <button type="submit">Register</button>
+          <a href="login.html" class="sign-In">already have an account</a>
         </form>
       </div>
     </section>
  
-    <script src="index.js"></script>
+   <script src="register.js"></script>
   </body>
 </html>

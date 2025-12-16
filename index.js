@@ -99,9 +99,9 @@ canvases.forEach((canvasNet) => {
     draw() {
       ctxNet.beginPath();
       ctxNet.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-      ctxNet.fillStyle = "rgba(0, 204, 109, 0.9)"; // أخضر فاتح
+      ctxNet.fillStyle = "rgba(0, 204, 109, 0.9)";
       ctxNet.shadowBlur = 10;
-      ctxNet.shadowColor = "rgba(0, 255, 150, 0.8)"; // Glow أخضر نيون
+      ctxNet.shadowColor = "rgba(0, 255, 150, 0.8)"; 
       ctxNet.fill();
       ctxNet.shadowBlur = 0;
     }
@@ -119,7 +119,7 @@ canvases.forEach((canvasNet) => {
           ctxNet.beginPath();
           ctxNet.moveTo(nodes[i].x, nodes[i].y);
           ctxNet.lineTo(nodes[j].x, nodes[j].y);
-          ctxNet.strokeStyle = `rgba(0, 255, 150, ${1 - dist / 80})`; // خطوط أخضر فاتح شفاف
+          ctxNet.strokeStyle = `rgba(0, 255, 150, ${1 - dist / 80})`; 
           ctxNet.lineWidth = 0.6;
           ctxNet.stroke();
         }
@@ -146,7 +146,7 @@ const courseCards = document.querySelectorAll(".course-card");
 
 searchInput.addEventListener("keyup", function () {
   const filter = searchInput.value.toLowerCase();
-  searchResults.innerHTML = ""; // مسح النتائج القديمة
+  searchResults.innerHTML = "";
 
   if (filter === "") {
     searchResults.style.display = "none";
@@ -174,3 +174,55 @@ searchInput.addEventListener("keyup", function () {
   searchResults.style.display = found ? "block" : "none";
 });
 // end of search bar toggle
+//burger menu
+const burger = document.querySelector('.burger-icon');
+const closeIcon = document.querySelector('.close-icon');
+const navLinks = document.querySelector('nav ul');
+
+burger.addEventListener('click', () => {
+    navLinks.classList.add('show');
+    burger.style.display = 'none';
+    closeIcon.style.display = 'block';
+});
+
+closeIcon.addEventListener('click', () => {
+    navLinks.classList.remove('show');
+    burger.style.display = 'block';
+    closeIcon.style.display = 'none';
+});
+// subscribe form
+document.getElementById("newsletter-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const emailInput = document.getElementById("newsletter-email");
+  const email = emailInput.value.trim();
+
+  const feedback = document.getElementById("newsletter-feedback");
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (email === "") {
+    feedback.textContent = "Please enter your email address.";
+    feedback.style.color = "red";
+    return;
+  }
+
+  if (!email.match(emailPattern)) {
+    feedback.textContent = "Invalid email address.";
+    feedback.style.color = "red";
+    return ;
+  }
+
+  feedback.textContent = "Thank you for subscribing!";
+  feedback.style.color = "green";
+  emailInput.value = "";
+ 
+  setTimeout(() => {
+    window.location.href = "register.html"
+    ;
+  }, 1500);
+
+  setTimeout(() => {
+    feedback.textContent = "";
+  }, 1000);
+});
+
+// end of subscribe form

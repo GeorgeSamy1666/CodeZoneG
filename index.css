@@ -8,12 +8,13 @@
 body {
     background-color: #121212;
     color: #ffffff;
-    
+
 }
-html{
-    scroll-behavior:smooth;
+
+html {
+    scroll-behavior: smooth;
     scrollbar-width: thin;
-    scrollbar-color:  rgb(0, 204, 109) #121212;
+    scrollbar-color: rgb(0, 204, 109) #121212;
 }
 
 .logo {
@@ -24,26 +25,27 @@ html{
 
 nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 10px;
+    top: 2%;
+    left: 10%;
+    border-radius: 70px;
+    width: 80%;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     gap: 20px;
     backdrop-filter: blur(2px);
-    padding: 10px;
-    z-index: 1000;
+    box-shadow: 0 0 20px 5px rgba(0, 204, 109, 0.65);
+    padding: 15px;
+    z-index: 10000;
 }
 
 nav ul {
+    position: relative;
     list-style: none;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    display: absolute;
-    margin: 0 auto;
     gap: 25px;
 }
 
@@ -53,17 +55,19 @@ nav li a {
     font-size: 18px;
     transition: all 0.3s ease;
 }
-nav  .active {
+
+nav .active {
     color: rgb(0, 204, 109);
 }
 
-nav  .active::after {
-     content: '';
+nav .active::after {
+    content: '';
     display: block;
     height: 2px;
     background: rgb(0, 177, 94);
     width: 100%;
 }
+
 nav a:hover {
     color: rgb(0, 204, 109);
 
@@ -81,10 +85,110 @@ nav a::after {
 nav a:hover::after {
     width: 100%;
 }
-.side-bar  a {
+
+nav .burger-icon {
+    position: absolute;
+    right: 2%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    display: none;
+}
+
+nav .burger-icon .line1 {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 6px 0;
+    transition: all 0.5s ease;
+    border-radius: 10px;
+}
+
+nav .burger-icon .line2 {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 6px 0;
+    transition: all 0.5s ease;
+    border-radius: 10px;
+}
+
+nav .burger-icon .line3 {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 6px 0;
+    transition: all 0.5s ease;
+    border-radius: 10px;
+}
+
+nav .burger-icon:hover .line2 {
+    transform: rotate(360deg);
+
+
+}
+
+nav .burger-icon:hover .line1,
+nav .burger-icon:hover .line3 {
+    transform: rotate(-360deg);
+    background-color: rgb(0, 204, 109);
+
+}
+
+nav .close-icon {
+    position: absolute;
+    right: 2%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    display: none;
+    transition: all 0.3s ease;
+}
+
+
+nav .close-icon .line1,
+nav .close-icon .line2 {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    border-radius: 5px;
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    transform-origin: center;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+}
+
+nav .close-icon .line1 {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+nav .close-icon .line2 {
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+nav .close-icon:hover .line1 {
+    transform: scale(1.2);
+    transform: rotate(30deg);
+    background-color: rgb(0, 204, 109);
+
+}
+
+nav .close-icon:hover .line2 {
+    transform: scale(1.2);
+    transform: rotate(-30deg);
+    background-color: rgb(0, 204, 109);
+}
+
+
+
+/* end */
+
+.side-bar a {
     text-decoration: none;
     position: fixed;
-    top:20%;
+    top: 20%;
     right: 1%;
     width: 60px;
     height: 60px;
@@ -98,32 +202,35 @@ nav a:hover::after {
     cursor: pointer;
     z-index: 999999;
     transition: all 0.2s ease;
-    
+
 }
 
 
 .side-bar a:hover {
-    box-shadow: rgba(255, 255, 255, 0.6) 0px 0px 0px 5px;
+    box-shadow: rgba(255, 255, 255, 0.6) 0px 0px 10px 5px;
     background-color: #ffffff;
     color: rgb(0, 204, 109);
 }
-.side-bar a i{
+
+.side-bar a i {
     transition: all 0.4s ease;
 }
-.side-bar a:hover i{
+
+.side-bar a:hover i {
     transform: rotate(-360deg);
 }
 
 
 
 .search-box {
-    margin-left: auto;
+
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 10px;
 }
 
-.search-box input[type="text"] {
+.search-box input {
     padding: 5px 10px;
     border: 1px solid #000000;
     border-radius: 10px;
@@ -153,17 +260,66 @@ nav a:hover::after {
     color: rgb(0, 204, 109);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+    nav {
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        border: none;
+        box-shadow: none;
+        border-radius: 0px;
+    }
+}
+
+@media (max-width: 810px) {
     nav {
         flex-direction: column;
         align-items: flex-start;
-        text-align: center;
+        padding: 5px;
+        box-shadow: none;
     }
 
     nav ul {
         flex-direction: column;
-        margin: 10px 0;
         gap: 10px;
+        position: absolute;
+        width: 100%;
+        top: 100%;
+        left: 0;
+        padding: 10px;
+        display: none;
+        border-radius: 10px;
+        background: rgba(18, 18, 18, 0.3);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    nav li {
+        width: 100%;
+    }
+
+
+    nav .active::after {
+        width: 0%;
+    }
+
+    nav a:hover::after {
+        width: 0%;
+    }
+
+
+    nav .burger-icon {
+        display: block;
+        cursor: pointer;
+    }
+
+    nav .close-icon {
+        display: none;
+        cursor: pointer;
+    }
+
+    nav ul.show {
+        display: flex;
     }
 
     .search-box {
@@ -173,7 +329,7 @@ nav a:hover::after {
     }
 
     .search-box input[type="text"] {
-        width: 80%;
+        width: 95%;
     }
 }
 
@@ -187,7 +343,7 @@ nav a:hover::after {
     }
 
     .search-box input[type="text"] {
-        width: 100%;
+        width: 95%;
     }
 }
 
@@ -201,6 +357,7 @@ header {
     position: relative;
     overflow: hidden;
 }
+
 header::after {
     content: "";
     bottom: 0;
@@ -223,7 +380,8 @@ header::after {
 header h1 {
     font-size: 48px;
     margin-bottom: 20px;
-    color: rgb(0, 204, 109);
+    color: rgb(0, 255, 136);
+    text-shadow: 0 0 10px rgb(0, 204, 109), 0 0 20px rgb(0, 204, 109), 0 0 20px rgb(0, 204, 109);
 }
 
 header p {
@@ -235,19 +393,20 @@ header .btn {
     display: inline-block;
     padding: 10px 20px;
     background-color: rgb(0, 204, 109);
-    color: #121212;
+    color: #000000;
     text-decoration: none;
     border-radius: 5px;
     font-size: 18px;
     margin-top: 20px;
-    
+
 }
 
 header .btn:hover {
-    color: #ffffff;
-    background-color: rgb(0, 177, 94);
+    color: rgb(0, 177, 94);
+    background-color: rgb(255, 255, 255);
     transition: color 0.3s ease, background-color 0.3s ease;
 }
+
 .features::after {
     content: "";
     bottom: 0;
@@ -261,7 +420,7 @@ header .btn:hover {
     padding: 50px 20px;
     background-color: #181818;
     text-align: center;
-    height:90vh;
+    height: 90vh;
     display: grid;
     place-items: center;
     gap: 20px;
@@ -288,22 +447,6 @@ header .btn:hover {
 
 }
 
-.features .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: rgb(0, 204, 109);
-    color: #121212;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 18px;
-    transition: background-color 0.3s ease;
-
-}
-
-.btn:hover {
-    background-color: rgb(0, 177, 94);
-
-}
 
 .features .feature {
     background-color: #1e1e1e;
@@ -363,7 +506,8 @@ header .btn:hover {
 
 
 }
-.feature i{
+
+.feature i {
     font-size: 30px;
     color: rgb(0, 204, 109);
     border: 2px solid rgb(0, 204, 109);
@@ -371,10 +515,11 @@ header .btn:hover {
     padding: 10px;
     transition: all 0.3s ease;
 }
-.features .feature:hover i{
-    box-shadow: rgba(0, 204, 109, 0.338) 0px 0px 0px 5px;
+
+.features .feature:hover i {
+    box-shadow: rgb(0, 204, 109) 0px 0px 10px 3px;
     transform: rotate(360deg);
-    color: #ffffff;
+    color: #1e1e1e;
     background-color: rgb(0, 204, 109);
 }
 
@@ -463,6 +608,7 @@ header .btn:hover {
     transform: translateY(-10px);
     box-shadow: 0 8px 16px rgba(0, 204, 109, 0.384);
 }
+
 .newsletter {
     padding: 50px 20px;
     background-color: #181818;
@@ -532,6 +678,7 @@ header .btn:hover {
 .newsletter .btn {
     width: 100px;
     text-decoration: none;
+    text-align: center;
     padding: 10px 20px;
     background-color: rgb(0, 204, 109);
     color: #121212;
@@ -542,10 +689,12 @@ header .btn:hover {
     transition: color 0.3s ease, background-color 0.3s ease;
 
 }
+
 .newsletter .btn:hover {
-    color: #ffffff;
-    background-color: rgb(0, 177, 94);
+    color: rgb(0, 177, 94);
+    background-color: rgb(255, 255, 255);
 }
+
 .newsletter::after {
     content: "";
     bottom: 0;
@@ -582,12 +731,13 @@ footer .social-icons a i:hover {
     color: rgb(0, 204, 109);
 }
 
-@media (max-width: 1100px){
-       .newsletter::after{
+@media (max-width: 1100px) {
+    .newsletter::after {
         height: 40px;
     }
 
 }
+
 @media (max-width: 768px) {
 
     .features,
@@ -642,7 +792,8 @@ footer .social-icons a i:hover {
         font-size: 22px;
         margin: 0 8px;
     }
-       .newsletter::after{
+
+    .newsletter::after {
         height: 20px;
     }
 }
@@ -674,76 +825,224 @@ footer .social-icons a i:hover {
     footer p {
         font-size: 14px;
     }
-    .newsletter::after{
+
+    .newsletter::after {
         height: 30px;
     }
-  
+
 }
+
 header h1,
 header p,
 header .btn {
-  opacity: 0;
-  transform: translateY(-100%);
-  transition: all 0.5s ease-out;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all 0.5s ease-out;
 }
 
 
 header h1.show,
 header p.show,
 header .btn.show {
-  opacity: 1;
-  transform: translateY(0);
-    
+    opacity: 1;
+    transform: translateY(0);
+
 }
 
 .feature {
-  opacity: 0;
-  transform: translateX(-100%);
-  transition: all 1s ease-in-out;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 1s ease-in-out;
 }
 
 .feature.show {
-  opacity: 1;
-  transform: translateX(0);
+    opacity: 1;
+    transform: translateX(0);
 }
+
 .testimonial {
-  opacity: 0;
-  transform: translateX(100%);
-  transition: all 2s ease-in-out;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 2s ease-in-out;
 }
 
 .testimonial.show {
-  opacity: 1;
-  transform: translateX(0);
+    opacity: 1;
+    transform: translateX(0);
 }
+
 .side-bar a {
-  opacity: 0;
-  transform: translateY(-100%);
-  transition: all 0.5s ease-in-out;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all 0.5s ease-in-out;
 }
 
 .side-bar a.show {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
+
 .newsletter p,
-.newsletter input
- {
-  opacity: 0;
-  transform: translateX(100%); 
+.newsletter input {
+    opacity: 0;
+    transform: translateX(100%);
     transition: all 1.5s ease-in-out;
-  
+
 }
-.newsletter .btn{
+
+.newsletter .btn {
     opacity: 0;
     transform: translateX(100%);
     transition: all 0.3s ease-in-out;
-    
+
 }
 
 .newsletter p.show,
 .newsletter input.show,
 .newsletter .btn.show {
-  opacity: 1;
-  transform: translateX(0);
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* loading */
+
+
+.loader-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+
+    z-index: 9999999999999999999999;
+    transition: opacity 1s ease;
+}
+
+.loader-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    scale: 0.9;
+}
+
+.central {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    box-shadow:
+        0.5em 1em 1em rgb(0, 204, 109),
+        -0.5em 0.5em 1em #27ae60,
+        0.5em -0.5em 1em #ffffff,
+        -0.5em -0.5em 1em #cccccc;
+}
+
+.external-shadow {
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow:
+        0.5em 0.5em 3em rgb(0, 204, 109),
+        -0.5em 0.5em 3em #27ae60,
+        0.5em -0.5em 3em #ffffff,
+        -0.5em -0.5em 3em #cccccc;
+    z-index: 999;
+    animation: rotate 3s linear infinite;
+    background-color: #121212;
+}
+
+.intern {
+    position: absolute;
+    color: rgb(0, 204, 109);
+    font-size: 1.5em;
+    font-weight: bold;
+    z-index: 9999;
+}
+
+.intern::before {
+    content: "0%";
+    animation: percent 5s linear forwards;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+@keyframes percent {
+    0% {
+        content: '0%';
+    }
+
+    20% {
+        content: '25%';
+    }
+
+    40% {
+        content: '50%';
+    }
+
+    60% {
+        content: '75%';
+    }
+
+    80% {
+        content: '90%';
+    }
+
+    100% {
+        content: '100%';
+    }
+}
+
+/* loading media Q */
+@media (max-width: 768px) {
+
+    .central,
+    .external-shadow {
+        width: 7em;
+        height: 7em;
+    }
+
+    .intern {
+        font-size: 1.2em;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .central,
+    .external-shadow {
+        width: 5em;
+        height: 5em;
+    }
+
+    .intern {
+        font-size: 1em;
+    }
 }

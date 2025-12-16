@@ -8,12 +8,13 @@
 body {
     background-color: #121212;
     color: #ffffff;
-    
+
 }
-html{
-    scroll-behavior:smooth;
+
+html {
+    scroll-behavior: smooth;
     scrollbar-width: thin;
-    scrollbar-color:  rgb(0, 204, 109) #121212;
+    scrollbar-color: rgb(0, 204, 109) #121212;
 }
 
 .logo {
@@ -24,26 +25,27 @@ html{
 
 nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 10px;
+    top: 2%;
+    left: 10%;
+    border-radius: 70px;
+    width: 80%;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     gap: 20px;
     backdrop-filter: blur(2px);
-    padding: 10px;
-    z-index: 1000;
+    box-shadow: 0 0 20px 5px rgba(0, 204, 109, 0.65);
+    padding: 15px;
+    z-index: 10000;
 }
 
 nav ul {
+    position: relative;
     list-style: none;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    display: absolute;
-    margin: 0 auto;
     gap: 25px;
 }
 
@@ -84,14 +86,151 @@ nav a:hover::after {
     width: 100%;
 }
 
-.search-box {
-    margin-left: auto;
+nav .burger-icon {
+    position: absolute;
+    right: 2%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    display: none;
+}
+
+nav .burger-icon .line1 {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 6px 0;
+    transition: all 0.5s ease;
+    border-radius: 10px;
+}
+
+nav .burger-icon .line2 {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 6px 0;
+    transition: all 0.5s ease;
+    border-radius: 10px;
+}
+
+nav .burger-icon .line3 {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 6px 0;
+    transition: all 0.5s ease;
+    border-radius: 10px;
+}
+
+nav .burger-icon:hover .line2 {
+    transform: rotate(360deg);
+
+
+}
+
+nav .burger-icon:hover .line1,
+nav .burger-icon:hover .line3 {
+    transform: rotate(-360deg);
+    background-color: rgb(0, 204, 109);
+
+}
+
+nav .close-icon {
+    position: absolute;
+    right: 2%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    display: none;
+    transition: all 0.3s ease;
+}
+
+
+nav .close-icon .line1,
+nav .close-icon .line2 {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    border-radius: 5px;
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    transform-origin: center;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+}
+
+nav .close-icon .line1 {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+nav .close-icon .line2 {
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+nav .close-icon:hover .line1 {
+    transform: scale(1.2);
+    transform: rotate(30deg);
+    background-color: rgb(0, 204, 109);
+
+}
+
+nav .close-icon:hover .line2 {
+    transform: scale(1.2);
+    transform: rotate(-30deg);
+    background-color: rgb(0, 204, 109);
+}
+
+
+
+/* end */
+
+.side-bar a {
+    text-decoration: none;
+    position: fixed;
+    top: 20%;
+    right: 1%;
+    width: 60px;
+    height: 60px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #ffffff;
+    background-color: rgb(0, 204, 109);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 999999;
+    transition: all 0.2s ease;
+
+}
+
+
+.side-bar a:hover {
+    box-shadow: rgba(255, 255, 255, 0.6) 0px 0px 0px 5px;
+    background-color: #ffffff;
+    color: rgb(0, 204, 109);
+}
+
+.side-bar a i {
+    transition: all 0.4s ease;
+}
+
+.side-bar a:hover i {
+    transform: rotate(-360deg);
+}
+
+
+
+.search-box {
+
+    display: flex;
+    justify-content: center;
     align-items: center;
     gap: 10px;
 }
 
-.search-box input[type="text"] {
+.search-box input {
     padding: 5px 10px;
     border: 1px solid #000000;
     border-radius: 10px;
@@ -121,17 +260,66 @@ nav a:hover::after {
     color: rgb(0, 204, 109);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+    nav {
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        border: none;
+        box-shadow: none;
+        border-radius: 0px;
+    }
+}
+
+@media (max-width: 810px) {
     nav {
         flex-direction: column;
         align-items: flex-start;
-        text-align: center;
+        padding: 5px;
+        box-shadow: none;
     }
 
     nav ul {
         flex-direction: column;
-        margin: 10px 0;
         gap: 10px;
+        position: absolute;
+        width: 100%;
+        top: 100%;
+        left: 0;
+        padding: 10px;
+        display: none;
+        border-radius: 10px;
+        background: rgba(18, 18, 18, 0.3);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    nav li {
+        width: 100%;
+    }
+
+
+    nav .active::after {
+        width: 0%;
+    }
+
+    nav a:hover::after {
+        width: 0%;
+    }
+
+
+    nav .burger-icon {
+        display: block;
+        cursor: pointer;
+    }
+
+    nav .close-icon {
+        display: none;
+        cursor: pointer;
+    }
+
+    nav ul.show {
+        display: flex;
     }
 
     .search-box {
@@ -141,7 +329,7 @@ nav a:hover::after {
     }
 
     .search-box input[type="text"] {
-        width: 80%;
+        width: 95%;
     }
 }
 
@@ -155,29 +343,50 @@ nav a:hover::after {
     }
 
     .search-box input[type="text"] {
-        width: 100%;
+        width: 95%;
     }
 }
 
-
-.services{
-    padding-top: 100px;
+header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 50px 20px;
+    position: relative;
+    overflow: hidden;
 }
+
+header::after {
+    content: "";
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to top, #181818, transparent);
+    position: absolute;
+    width: 100%;
+    height: 100px;
+}
+
 #matrix {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    z-index: -3;
-    overflow: hidden;
-
+    z-index: -1;
 }
+
+
+.services {
+    padding-top: 100px;
+}
+
 .services-container {
     width: 100%;
     display: grid;
     align-items: center;
-    justify-content:flex-end;
+    justify-content: flex-end;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     text-align: center;
@@ -204,7 +413,8 @@ nav a:hover::after {
     text-align: center;
     font-size: 32px;
     margin-bottom: 40px;
-    color: rgb(0, 204, 109);
+    color: rgb(0, 255, 136);
+    text-shadow: 0 0 10px rgb(0, 204, 109), 0 0 20px rgb(0, 204, 109), 0 0 20px rgb(0, 204, 109);
 }
 
 .service-item {
@@ -215,7 +425,8 @@ nav a:hover::after {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.service-item i{
+
+.service-item i {
     font-size: 30px;
     margin-bottom: 15px;
     border: 2px solid rgb(0, 204, 109);
@@ -224,6 +435,7 @@ nav a:hover::after {
     color: rgb(0, 204, 109);
     transition: all 0.3s ease;
 }
+
 .service-item h3 {
     font-size: 24px;
     margin-bottom: 15px;
@@ -240,33 +452,36 @@ nav a:hover::after {
     transform: translateY(-10px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
-.service-item:hover i{
-    box-shadow: rgba(0, 204, 109, 0.338) 0px 0px 0px 5px;
+
+.service-item:hover i {
+    box-shadow: rgb(0, 204, 109) 0px 0px 10px 3px;
     background-color: rgb(0, 204, 109);
     transform: rotate(360deg);
     color: #1e1e1e;
 }
 
 @media (max-width: 768px) {
-   .services-container{
-    height: auto;
-    width: 100%;
-    overflow: hidden;
-    padding: 20px;
-   }
-   .services{
-    padding-top: 300px;
-   }
-   #matrix{
-    height: 180vh;
-   }
+    .services-container {
+        height: auto;
+        width: 100%;
+        overflow: hidden;
+        padding: 20px;
+    }
+
+    .services {
+        padding-top: 300px;
+    }
+
+    #matrix {
+        height: 180vh;
+    }
 
 }
 
 .contact {
     width: 100%;
     padding: 40px;
-    height: auto    ;
+    height: auto;
     background-color: #1e1e1e;
     display: flex;
     flex-direction: column;
@@ -311,6 +526,9 @@ nav a:hover::after {
     font-size: 16px;
     background-color: #2b2b2b;
     color: #ffffff;
+}
+.contact form textarea{
+    resize: none;
 }
 
 .contact form input:focus,
@@ -425,16 +643,19 @@ nav a:hover::after {
         width: 100%;
         padding: 0 10px;
     }
+
     .faq .faq-item {
         width: 100%;
         padding: 0 10px;
     }
-    .about{
+
+    .about {
         height: 80vh;
     }
+
     .faq {
         height: 80vh;
-      
+
     }
 }
 
@@ -461,6 +682,7 @@ nav a:hover::after {
     justify-content: space-around;
 
 }
+
 .team .team-header {
     display: flex;
     align-items: center;
@@ -483,20 +705,23 @@ nav a:hover::after {
     margin-bottom: 10px;
     overflow: hidden;
 }
-.team-image img{
+
+.team-image img {
     border-radius: 50%;
-  width: 100%;
-  height: auto;
+    width: 100%;
+    height: auto;
     object-fit: cover;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
 }
-.team-image:hover{
+
+.team-image:hover {
     box-shadow: 0 0px 20px rgb(0, 204, 109);
 }
-.team-image:hover img{
+
+.team-image:hover img {
     transform: scale(1.1);
-    
+
 }
 
 .team-member {
@@ -534,7 +759,7 @@ nav a:hover::after {
     margin-top: 10px;
 }
 
-.team-member .social-media a i{
+.team-member .social-media a i {
     color: #ffffff;
     margin: 10px;
     font-size: 23px;
@@ -545,7 +770,7 @@ nav a:hover::after {
 }
 
 .team-member .social-media a i:hover {
-    box-shadow: rgba(0, 204, 109, 0.338) 0px 0px 0px 5px;
+    box-shadow: rgba(0, 204, 109, 0.338) 0px 0px 10px 5px;
     background-color: rgb(0, 204, 109);
     color: rgb(0, 0, 0);
 }
@@ -586,13 +811,15 @@ nav a:hover::after {
     transform: scale(1.02);
     box-shadow: 0 0 10px rgba(0, 204, 109, 0.5);
 }
+
 .team-member:hover h3 {
     text-decoration: underline;
 }
+
 .team-member:hover .image {
     box-shadow: 0 0 10px rgba(0, 204, 109, 0.5);
 }
-   
+
 
 .team-member:hover .image img {
     transform: scale(1.1);
@@ -616,12 +843,14 @@ nav a:hover::after {
     .team-container {
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     }
+
     .team-member {
         width: 100%;
         height: 400px;
         padding: 20px;
     }
-    .team-member .image{
+
+    .team-member .image {
         width: 200px;
         height: 200px;
     }
@@ -631,12 +860,14 @@ nav a:hover::after {
 
 @media (max-width: 768px) {
     .team-container {
-         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
-    .team .team-image{
+
+    .team .team-image {
         width: 100px;
         height: 100px;
     }
+
     .team-member {
         width: 100%;
         height: 350px;
@@ -659,7 +890,8 @@ nav a:hover::after {
     .team-member p {
         font-size: 14px;
     }
-    .team-member .image{
+
+    .team-member .image {
         width: 170px;
         height: 170px;
     }
@@ -693,3 +925,78 @@ footer .social-icons a i:hover {
 }
 
 /* Animation */
+/* loading */
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999999999999999999;
+  transition: opacity 0.8s ease;
+}
+
+.loader-container.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sec-loader {
+  animation: rotate 1s infinite;
+  height: 50px;
+  width: 50px;
+}
+
+.sec-loader:before,
+.sec-loader:after {
+  border-radius: 50%;
+  content: '';
+  display: block;
+  height: 20px;
+  width: 20px;
+}
+
+
+.sec-loader:before {
+  animation: ball1 1s infinite;
+  background-color: rgb(0, 204, 109); 
+  box-shadow: 30px 0 0 #ffffff;       
+  margin-bottom: 10px;
+}
+
+/* الكرة الثانية */
+.sec-loader:after {
+  animation: ball2 1s infinite;
+  background-color: #2b2b2b;         
+  box-shadow: 30px 0 0 rgb(0, 177, 94); 
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg) scale(0.8); }
+  50% { transform: rotate(360deg) scale(1.2); }
+  100% { transform: rotate(720deg) scale(0.8); }
+}
+
+@keyframes ball1 {
+  0% { box-shadow: 30px 0 0 #ffffff; }
+  50% {
+    box-shadow: 0 0 0 #ffffff;
+    margin-bottom: 0;
+    transform: translate(15px,15px);
+  }
+  100% { box-shadow: 30px 0 0 #ffffff; margin-bottom: 10px; }
+}
+
+@keyframes ball2 {
+  0% { box-shadow: 30px 0 0 rgb(0, 177, 94); }
+  50% {
+    box-shadow: 0 0 0 rgb(0, 177, 94);
+    margin-top: -20px;
+    transform: translate(15px,15px);
+  }
+  100% { box-shadow: 30px 0 0 rgb(0, 177, 94); margin-top: 0; }
+}

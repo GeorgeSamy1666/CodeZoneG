@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #1e1e1e;
+    background-color: #000000;
     color: #ffffff;
     overflow: hidden;
     height: 100vh;
@@ -20,26 +20,27 @@ body {
 
 nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 10px;
+    top: 2%;
+    left: 10%;
+    border-radius: 70px;
+    width: 80%;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     gap: 20px;
     backdrop-filter: blur(2px);
-    padding: 10px;
+    box-shadow: 0 0 20px 5px rgba(0, 204, 109, 0.65);
+    padding: 15px;
     z-index: 999999999;
 }
 
 nav ul {
+    position: relative;
     list-style: none;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    display: absolute;
-    margin: 0 auto;
     gap: 25px;
 }
 
@@ -49,17 +50,19 @@ nav li a {
     font-size: 18px;
     transition: all 0.3s ease;
 }
-nav  .active {
+
+nav .active {
     color: rgb(0, 204, 109);
 }
 
-nav  .active::after {
-     content: '';
+nav .active::after {
+    content: '';
     display: block;
     height: 2px;
     background: rgb(0, 177, 94);
     width: 100%;
 }
+
 nav a:hover {
     color: rgb(0, 204, 109);
 
@@ -78,6 +81,101 @@ nav a:hover::after {
     width: 100%;
 }
 
+nav .burger-icon {
+    position: absolute;
+    right: 2%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    display: none;
+}
+
+nav .burger-icon .line1 {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 6px 0;
+    transition: all 0.5s ease;
+    border-radius: 10px;
+}
+
+nav .burger-icon .line2 {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 6px 0;
+    transition: all 0.5s ease;
+    border-radius: 10px;
+}
+
+nav .burger-icon .line3 {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 6px 0;
+    transition: all 0.5s ease;
+    border-radius: 10px;
+}
+
+nav .burger-icon:hover .line2 {
+    transform: rotate(360deg);
+
+
+}
+
+nav .burger-icon:hover .line1,
+nav .burger-icon:hover .line3 {
+    transform: rotate(-360deg);
+    background-color: rgb(0, 204, 109);
+
+}
+
+nav .close-icon {
+    position: absolute;
+    right: 2%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    display: none;
+    transition: all 0.3s ease;
+}
+
+
+nav .close-icon .line1,
+nav .close-icon .line2 {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    border-radius: 5px;
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    transform-origin: center;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+}
+
+nav .close-icon .line1 {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+nav .close-icon .line2 {
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+nav .close-icon:hover .line1 {
+    transform: scale(1.2);
+    transform: rotate(30deg);
+    background-color: rgb(0, 204, 109);
+
+}
+
+nav .close-icon:hover .line2 {
+    transform: scale(1.2);
+    transform: rotate(-30deg);
+    background-color: rgb(0, 204, 109);
+}
+
 
 #matrix {
     position: absolute;
@@ -87,14 +185,16 @@ nav a:hover::after {
     height: 100vh;
     z-index: -1;
 }
+
 .search-box {
-    margin-left: auto;
+
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 10px;
 }
 
-.search-box input[type="text"] {
+.search-box input {
     padding: 5px 10px;
     border: 1px solid #000000;
     border-radius: 10px;
@@ -124,17 +224,65 @@ nav a:hover::after {
     color: rgb(0, 204, 109);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+    nav {
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        border: none;
+        border-radius: 0px;
+        box-shadow: none;
+    }
+}
+
+@media (max-width: 810px) {
     nav {
         flex-direction: column;
         align-items: flex-start;
-        text-align: center;
+        padding: 5px;
     }
 
     nav ul {
         flex-direction: column;
-        margin: 10px 0;
         gap: 10px;
+        position: absolute;
+        width: 100%;
+        top: 100%;
+        left: 0;
+        padding: 10px;
+        display: none;
+        border-radius: 10px;
+        background: rgba(18, 18, 18, 0.3);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    nav li {
+        width: 100%;
+    }
+
+
+    nav .active::after {
+        width: 0%;
+    }
+
+    nav a:hover::after {
+        width: 0%;
+    }
+
+
+    nav .burger-icon {
+        display: block;
+        cursor: pointer;
+    }
+
+    nav .close-icon {
+        display: none;
+        cursor: pointer;
+    }
+
+    nav ul.show {
+        display: flex;
     }
 
     .search-box {
@@ -144,7 +292,7 @@ nav a:hover::after {
     }
 
     .search-box input[type="text"] {
-        width: 80%;
+        width: 95%;
     }
 }
 
@@ -158,7 +306,7 @@ nav a:hover::after {
     }
 
     .search-box input[type="text"] {
-        width: 100%;
+        width: 95%;
     }
 }
 
@@ -172,9 +320,10 @@ nav a:hover::after {
 .container {
     width: 500px;
     color: white;
-    background-color: rgba(33, 33, 33, 0.738);
-    border-radius: 10px;
-    box-shadow: 0 0 12px 3px rgba(0, 0, 0, 0.725);
+    backdrop-filter: blur(2px);
+    border-radius: 20px;
+    border: 5px solid rgb(0, 204, 109);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     padding: 30px 40px;
     font-family: "poppins", sans-serif;
     text-align: center;
@@ -185,6 +334,8 @@ nav a:hover::after {
     font-size: 36px;
     margin-bottom: 20px;
     color: rgb(0, 204, 109);
+    text-shadow: 0 0 20px rgb(3, 255, 137);
+    font-family: "poppins", sans-serif;
 }
 
 .container p {
@@ -202,6 +353,8 @@ nav a:hover::after {
     border-radius: 40px;
     font-size: 18px;
     margin-top: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
     border: 2px solid rgba(255, 255, 255, 0.699);
     transition: color 0.3s ease, background-color 0.3s ease;
 }
@@ -228,22 +381,15 @@ nav a:hover::after {
 }
 
 .container .sign-up {
-    display: inline-block;
-    padding: 5px 20px;
-    background-color: rgb(0, 204, 109);
-    border: 2px solid rgba(255, 255, 255, 0.699);
-    color: #121212;
-    text-decoration: none;
-    border-radius: 40px;
-    font-size: 18px;
+    padding: 20px;
+    text-align: center;
     margin-top: 20px;
-    transition: color 0.3s ease, background-color 0.3s ease;
+    color: rgb(0, 177, 94);
+    text-decoration: none;
+
 }
 
-.container .sign-up:hover {
-    color: #ffffff;
-    background-color: rgb(0, 177, 94);
-}
+
 
 .container form .input-box input {
     width: 100%;
@@ -269,76 +415,155 @@ nav a:hover::after {
 
 
 @media (max-width: 1024px) {
-  .container {
-    width: 350px;
-    padding: 25px 30px;
-  }
+    .container {
+        width: 350px;
+        padding: 25px 30px;
+    }
 
-  .container h1 {
-    font-size: 30px;
-  }
+    .container h1 {
+        font-size: 30px;
+    }
 
-  .container .login,
-  .container .sign-up {
-    font-size: 16px;
-  }
+    .container .login,
+    .container .sign-up {
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 768px) {
 
 
-  .container {
-    width: 90%;
-    padding: 20px;
-    margin-top: 100px;
-  }
+    .container {
+        width: 90%;
+        padding: 20px;
+        margin-top: 100px;
+    }
 
-  .container h1 {
-    font-size: 28px;
-  }
+    .container h1 {
+        font-size: 28px;
+    }
 
-  .container form input {
-    font-size: 14px;
-    
-  }
+    .container form input {
+        font-size: 14px;
+
+    }
 }
 
 @media (max-width: 480px) {
-  .container {
-    width: 90%;
-    padding: 15px;
-  }
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
 
-  .container h1 {
-    font-size: 24px;
-  }
+    .container h1 {
+        font-size: 24px;
+    }
 
-  .container form input {
-    font-size: 14px;
-    padding: 12px 35px 12px 12px;
-  }
+    .container form input {
+        font-size: 14px;
+        padding: 12px 35px 12px 12px;
+    }
 
-  .container .login,
-  .container .sign-up {
-    font-size: 14px;
-    padding: 8px 15px;
-  }
-  .email i{
-     right: 18%;
-    top: 27%;
-  }
-  .password i{
-    right: 100%;
-  }
+    .container .login,
+    .container .sign-up {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    .email i {
+        right: 18%;
+        top: 27%;
+    }
+
+    .password i {
+        right: 100%;
+    }
 }
+
 /* animation */
 .login-container .container {
-  opacity: 0;
-  transform: translateY(-100%);
-  transition: all 1.5s ease-in-out;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all 1.5s ease-in-out;
 }
 
 .login-container .container.show {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
+}
+/* loading */
+
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999999999999999999;
+  transition: opacity 0.8s ease;
+}
+
+.loader-container.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sec-loader {
+  animation: rotate 1s infinite;
+  height: 50px;
+  width: 50px;
+}
+
+.sec-loader:before,
+.sec-loader:after {
+  border-radius: 50%;
+  content: '';
+  display: block;
+  height: 20px;
+  width: 20px;
+}
+
+
+.sec-loader:before {
+  animation: ball1 1s infinite;
+  background-color: rgb(0, 204, 109); 
+  box-shadow: 30px 0 0 #ffffff;       
+  margin-bottom: 10px;
+}
+
+/* الكرة الثانية */
+.sec-loader:after {
+  animation: ball2 1s infinite;
+  background-color: #2b2b2b;         
+  box-shadow: 30px 0 0 rgb(0, 177, 94); 
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg) scale(0.8); }
+  50% { transform: rotate(360deg) scale(1.2); }
+  100% { transform: rotate(720deg) scale(0.8); }
+}
+
+@keyframes ball1 {
+  0% { box-shadow: 30px 0 0 #ffffff; }
+  50% {
+    box-shadow: 0 0 0 #ffffff;
+    margin-bottom: 0;
+    transform: translate(15px,15px);
+  }
+  100% { box-shadow: 30px 0 0 #ffffff; margin-bottom: 10px; }
+}
+
+@keyframes ball2 {
+  0% { box-shadow: 30px 0 0 rgb(0, 177, 94); }
+  50% {
+    box-shadow: 0 0 0 rgb(0, 177, 94);
+    margin-top: -20px;
+    transform: translate(15px,15px);
+  }
+  100% { box-shadow: 30px 0 0 rgb(0, 177, 94); margin-top: 0; }
 }

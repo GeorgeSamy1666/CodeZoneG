@@ -30,21 +30,37 @@
     <title>Login</title>
   </head>
   <body>
+    <div class="loader-container">
+      <div>
+        <div class="sec-loader"></div>
+      </div>
+    </div>
     <nav>
       <div class="logo"><i class="bx bx-code-alt"></i> CodeZone</div>
       <div class="search-box">
-        <input type="text" placeholder="Search..." />
+        <input type="text" id="searchInput" placeholder="Search..." />
         <i class="bx bx-search"></i>
       </div>
+
       <ul>
-        <li><a href="index.html" >Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="login.html" class="active">Login</a></li>
-        <li><a href="courses.html">Courses</a></li>
+        <li><a href="popular-courses.html">Courses</a></li>
         <li><a href="services.html">Services</a></li>
       </ul>
+      <!-- burger icon -->
+      <div class="burger-icon">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+      <div class="close-icon">
+        <div class="line1"></div>
+        <div class="line2"></div>
+      </div>
     </nav>
-     <canvas id="matrix"></canvas>
-    <div class="login-container ">
+    <canvas id="matrix"></canvas>
+    <div class="login-container">
       <div class="container">
         <h1>Login</h1>
         <form>
@@ -68,15 +84,16 @@
             />
             <i class="bx bxs-lock"></i>
           </div>
-          <button type="submit"  class="login">Login</button>
+          <button type="submit" class="login">Login</button>
           <p>
             Don't have an account?
-            <a href="register.html"type="button" class="sign-up">Sign up</a>
+            <a href="register.html" type="button" class="sign-up">Sign up</a>
           </p>
         </form>
       </div>
     </div>
 
-    <script src="index.js"></script>
+    <!-- <script src="index.js"></script> -->
+    <script src="login.js"></script>
   </body>
 </html>

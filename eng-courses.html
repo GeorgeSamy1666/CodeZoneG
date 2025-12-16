@@ -34,24 +34,43 @@
     <title>Courses</title>
   </head>
   <body>
-    <nav>
-      <div class="logo"><i class="bx bx-code-alt"></i> CodeZone</div>
-      <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Search..." />
-        <i class="bx bx-search"></i>
-        <div id="searchResults" class="search-results"></div>
+      <div class="loader-container">
+      <div>
+        <div class="sec-loader"></div>
       </div>
+    </div>
+    <nav>
+        <div class="logo"><i class='bx  bx-code-alt'></i>  CodeZone</div>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <i class='bx bx-search'></i>
+            <div id="searchResults" class="search-results"></div>
+       
+        </div>
+     
+        
+        <ul >
+            <li><a href="index.html" >Home</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="eng-courses.html"class="active">CourseE</a></li>
+            <li><a href="services.html">Services</a></li>
+        </ul>
+             <!-- burger icon -->
+            <div class="burger-icon">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <div class="close-icon">
+            <div class="line1"></div>
+            <div class="line2"></div>
+        </div>
 
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="login.html">Login</a></li>
-        <li><a href="courses.html" class="active">Courses</a></li>
-        <li><a href="services.html">Services</a></li>
-      </ul>
+     
     </nav>
     <div class="sec-nav">
-      <a href="courses.html" class="arabic active">Arabic</a>
-      <a href="eng-courses.html" class="english">English</a>
+      <a href="courses.html" class="arabic ">Arabic</a>
+      <a href="eng-courses.html" class="english active">English</a>
     </div>
     <header>
       <div class="header-content">
@@ -90,7 +109,7 @@
         <p>Description of React Course</p>
         <div class="buttons">
           <a href="wallet.html" class="btn1">Get </a>
-          <a href="/courses-pages/bootStrab.html" class="btn2">View</a>
+          <a href="/courses-pages/react.html" class="btn2">View</a>
         </div>
       </div>
       <div class="course-card">
@@ -102,7 +121,7 @@
         <p>Description of OOP Course</p>
         <div class="buttons">
           <a href="wallet.html" class="btn1">Get </a>
-          <a href="/courses-pages/bootStrab.html" class="btn2">View</a>
+          <a href="/courses-pages/oop.html" class="btn2">View</a>
         </div>
       </div>
       <div class="course-card">
@@ -114,7 +133,7 @@
         <p>Description of C# Course</p>
         <div class="buttons">
           <a href="wallet.html" class="btn1">Get </a>
-          <a href="/courses-pages/bootStrab.html" class="btn2">View</a>
+          <a href="/courses-pages/c-sharp.html" class="btn2">View</a>
         </div>
       </div>
       <div class="course-card">
@@ -126,7 +145,7 @@
         <p>Description of C++ Course</p>
         <div class="buttons">
           <a href="wallet.html" class="btn1">Get </a>
-          <a href="/courses-pages/bootStrab.html" class="btn2">View</a>
+          <a href="/courses-pages/c-plus-plus.html" class="btn2">View</a>
         </div>
       </div>
       <div class="course-card">
@@ -141,7 +160,7 @@
         <p>Description of JS Course</p>
         <<div class="buttons">
           <a href="wallet.html" class="btn1">Get </a>
-          <a href="/courses-pages/bootStrab.html" class="btn2">View</a>
+          <a href="/courses-pages/js.html" class="btn2">View</a>
         </div>
       </div>
       <div class="course-card">
@@ -154,7 +173,7 @@
         <p>Description of Python Course</p>
         <div class="buttons">
           <a href="wallet.html" class="btn1">Get </a>
-          <a href="/courses-pages/bootStrab.html" class="btn2">View</a>
+          <a href="/courses-pages/python.html" class="btn2">View</a>
         </div>
       </div>
       <div class="course-card">
@@ -169,7 +188,7 @@
         <p>Description of Database Course</p>
         <div class="buttons">
           <a href="wallet.html" class="btn1">Get </a>
-          <a href="/courses-pages/bootStrab.html" class="btn2">View</a>
+          <a href="/courses-pages/DB.html" class="btn2">View</a>
         </div>
       </div>
       <div class="course-card">
@@ -181,7 +200,7 @@
         <p>Description of Data Structures Course</p>
         <div class="buttons">
           <a href="wallet.html" class="btn1">Get </a>
-          <a href="/courses-pages/bootStrab.html" class="btn2">View</a>
+          <a href="/courses-pages/DS.html" class="btn2">View</a>
         </div>
       </div>
       <div class="course-card">
@@ -193,7 +212,7 @@
         <p>Description of .Net Course</p>
        <div class="buttons">
           <a href="wallet.html" class="btn1">Get </a>
-          <a href="/courses-pages/bootStrab.html" class="btn2">View</a>
+          <a href="/courses-pages/net.html" class="btn2">View</a>
         </div>
       </div>
       <div class="course-card">
@@ -208,7 +227,7 @@
         <p>Description of Problem Solving Course</p>
         <div class="buttons">
           <a href="wallet.html" class="btn1">Get </a>
-          <a href="/courses-pages/bootStrab.html" class="btn2">View</a>
+          <a href="/courses-pages/ps.html" class="btn2">View</a>
         </div>
       </div>
       <div class="course-card">
@@ -220,7 +239,7 @@
         <p>Description of CSS Course</p>
         <div class="buttons">
           <a href="wallet.html" class="btn1">Get </a>
-          <a href="/courses-pages/bootStrab.html" class="btn2">View</a>
+          <a href="/courses-pages/css.html" class="btn2">View</a>
         </div>
       </div>
       <div class="course-card">
@@ -232,11 +251,11 @@
         <p>Description of HTML Course</p>
         <div class="buttons">
           <a href="wallet.html" class="btn1">Get </a>
-          <a href="/courses-pages/bootStrab.html" class="btn2">View</a>
+          <a href="/courses-pages/html.html" class="btn2">View</a>
         </div>
       </div>
     </div>
-
+    <script src="courses.js"></script>
     <script src="index.js"></script>
   </body>
 </html>
