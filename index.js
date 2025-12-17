@@ -211,7 +211,7 @@ document.getElementById("newsletter-form").addEventListener("submit", function (
     return ;
   }
 
-  feedback.textContent = "Thank you for subscribing!";
+  feedback.textContent = "GO TO REGISTER NOW...";
   feedback.style.color = "green";
   emailInput.value = "";
  
