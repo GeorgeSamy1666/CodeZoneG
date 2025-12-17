@@ -530,11 +530,12 @@ header::after {
 }
 .course-card .price{
     position: absolute;
-    bottom: 15px;
-    right: 15px;
-    background-color: rgba(123, 123, 123, 0.3);
+    top: 20px;
+    right: 20px;
+    background-color: rgba(123, 123, 123, 0.325);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: 2px solid rgb(0, 204, 109);
-    
     box-shadow: rgba(0, 204, 109, 0.324) 0px 0px 20px 1px;
     color: rgb(0, 204, 109);
     padding: 10px 15px;
@@ -545,8 +546,7 @@ header::after {
     transition: all 0.3s ease;
 } 
 .course-card  .price span{
-    background-color: rgba(0, 204, 109, 0.691);
-    
+    background-color: rgba(0, 204, 109, 0.709);
     color: rgb(255, 255, 255);
     box-shadow: rgba(0, 204, 109, 0.324)  0px 0px 20px 1px;
     margin-left: 10px;
@@ -557,6 +557,8 @@ header::after {
     font-size: 17px;
     font-weight: bold;
 }
+
+
 
 
 .course-card:hover {
@@ -677,6 +679,8 @@ header::after {
         grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
         padding: 50px;
     }
+    
+ 
 }
 
 @media (max-width: 768px) {
@@ -742,6 +746,7 @@ header::after {
     }
 
 }
+
 
 /* course cards */
 .search-box {
@@ -878,3 +883,6 @@ header .btn.show {
   }
   100% { box-shadow: 30px 0 0 rgb(0, 177, 94); margin-top: 0; }
 }
+
+
+
